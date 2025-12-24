@@ -1,0 +1,66 @@
+--- PROJECT INFO ---
+
+TITLE: Slope Stability V1.7 - Advanced Reinforcement
+UNITS: METRIC
+
+--- ANALYSIS CONTROL ---
+
+SOLVER: bishop
+WEIGHT_METHOD: SIMPLIFIED
+NUM_SLICES: 50
+
+--- SURCHARGE ---
+NUM_SURCHARGES: 3
+SURCHARGE: 30.0, 40.0, 50.0  ! 50 kPa load on crest edge
+SURCHARGE: 25.0, 35.0, 20.0
+SURCHARGE: 40.0, 45.0, 15.0
+
+--- REINFORCEMENT ---
+
+NUM_REINFORCEMENTS: 2
+
+! Format: ID, Type, X1, Y1, X2, Y2, Ten(kN), Shear(kN), Space(m), Bond(kN/m), Fric_Coeff
+
+! Nail 1: Bond Strength specified (100.0 kN/m), Friction Coeff ignored (0.0)
+REINFORCEMENT: 1, 2, 20.0, 20.0, 60.0, 12.0, 150.0, 80.0, 1.5, 100.0, 0.0
+
+! Geogrid 2: Physics Calculation (Bond=0.0) but custom Friction Coeff (0.6)
+REINFORCEMENT: 2, 1, 9.0, 10.0, 70.0, 10.0, 60.0, 0.0, 1.0, 0.0, 0.6
+
+--- SOIL PROPERTIES ---
+
+NUM_SOILS: 1
+SOIL: 1, 5.0, 25.0, 18.0
+
+--- GEOMETRY (X, Y) ---
+
+SLOPE_SURFACE_START
+-10.0, 0.0
+0.0, 0.0
+20.0, 20.0
+40.0, 20.0
+SLOPE_SURFACE_END
+
+SOIL_BOUNDARY_START
+-10.0, -5.0
+40.0, -5.0
+SOIL_BOUNDARY_END
+
+WATER_TABLE_START
+-10.0, -5.0
+40.0, -5.0
+WATER_TABLE_END
+
+--- SEARCH METHOD ---
+
+GRID_TOP_LEFT: 0.0, 15.0
+GRID_BOTTOM_RIGHT: 15.0, 25.0
+
+GRID_STEPS_X: 20
+GRID_STEPS_Y: 20
+
+RADIUS_MIN: 15.0
+RADIUS_MAX: 35.0
+RADIUS_STEPS: 20
+
+

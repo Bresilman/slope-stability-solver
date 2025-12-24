@@ -1,0 +1,33 @@
+Ignore compiled binaries
+
+slope_solver
+slope_reinforced_solver
+*.exe
+*.out
+
+Ignore Fortran object and module files
+
+build/
+*.o
+*.mod
+
+Ignore runtime logs and result files
+
+log_results.txt
+results.txt
+
+Ignore backup and experimental directories
+
+src/Working*
+src/Not working*
+src/*/
+
+Ignore Python cache and environment files (if you use the scripts)
+
+pycache/
+*.pyc
+.ipynb_checkpoints/
+
+Ignore system files
+
+.DS_Store
